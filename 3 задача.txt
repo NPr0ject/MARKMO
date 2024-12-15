@@ -1,0 +1,25 @@
+using System;
+class programm {
+    // задание 3
+    static void Main() {
+        int n = Convert.ToInt32(Console.ReadLine());
+        int ans = -2147483648;
+        int score = 0;
+    for (int i = 0; i < n; i++){
+        int c = Convert.ToInt32(Console.ReadLine());
+        if (c %2 == 0){
+            score += c;
+        }
+        else {
+            if(ans < score){
+                ans = score;
+            }
+            score = 0;
+        }
+    }
+    if(ans < score){
+                ans = score;
+            }
+    Console.WriteLine(ans);
+    }
+}

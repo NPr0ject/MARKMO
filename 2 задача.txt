@@ -1,0 +1,27 @@
+using System;
+class programm {
+    // задание 2
+    static void Main() {
+        int n = Convert.ToInt32(Console.ReadLine());
+        int ans = 2147483647;
+        int score = 1;
+        int m = Convert.ToInt32(Console.ReadLine());
+        int cm = m;
+    for (int i = 0; i < n - 1; i++){
+        int c = Convert.ToInt32(Console.ReadLine());
+        if (c == cm){
+            score++;
+        }
+        if (c != cm) {
+            if(ans > score){
+                ans = score;
+            }
+            score = 1;
+            cm = c;
+        }
+    }
+    if(ans > score)
+        ans = score;
+    Console.WriteLine(ans);
+    }
+}
