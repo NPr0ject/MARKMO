@@ -1,0 +1,20 @@
+using System;
+class programm
+{
+    static void Main()
+    {
+        int n = Convert.ToInt32(Console.ReadLine());
+        int[] a = new int[n];
+        bool ans = false;
+        for (int i = 0; i < n; i++)
+        {
+            a[i] = Convert.ToInt32(Console.ReadLine());
+            if (i % 2 == 0 && a[i] % 2 == 0 && a[i] > 0) // проверка на нечётность позиции элемента && проверка на чётность элемента && проверка на положительность
+            {
+                ans = true;
+            }
+
+        }
+            Console.WriteLine(ans);
+    }
+} 
