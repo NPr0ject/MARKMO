@@ -1,0 +1,81 @@
+using System;
+public class programm
+{
+    public static string format(string n)
+    {
+        string s = "";
+        s += n[0];
+        for (int i = 1; i < n.Length; i++)
+        {
+            if (n[i] == n[i - 1] && n[i] == ' ')
+            {
+                // просто пустое действие для удобства else
+            }
+            else
+                s += n[i];
+        }
+        return s;
+    }
+
+    public static string polindrom(string[] n) // 
+    {
+        string s = "";
+        for (int iarray = 0; iarray < n.Length; iarray++)
+        {
+            bool polindromProverka = true;
+            for (int istring = 0; istring < (n[iarray].Length / 2); istring++)
+            {
+                int kon = n[iarray].Length - istring - 1;
+                if (n[iarray][istring] == n[iarray][kon])
+                {
+                }// пустое действие для удобства else
+                else
+                {
+                    polindromProverka = false;
+                }
+            }
+            if (polindromProverka == true)
+            {
+                s = s + n[iarray] + " ";
+            }
+        }
+        return s;
+    }
+
+    public static int theard (string[] n)
+    {
+        char[] glas = { 'a', 'A', 'q', 'Q', 'e', 'E', 'y', 'Y', 'u', 'U', 'i', 'I', 'o', 'O', 'j', 'J'}; // string[] glas = { "a", "A", "q", "Q", "e", "E", "y", "Y", "u", "U", "i", "I", "o", "O", "j", "J"};
+        int ans = 0;
+        for(int i = 0; i < n.Length; i++)
+        {
+            int count = 0;
+            for(int j = 0; j < n[i].Length; j++)
+            {
+                for (int k = 0; k < glas.Length; k++)
+                {
+                    if (n[i][j] == glas[k])
+                    {
+                        count++;
+                    }
+                }
+            }
+            if (count > n[i].Length / 2)
+            {
+                ans++;
+            }
+        }
+        return ans;
+    }
+
+
+    public static void Main()
+    {
+        string s1 = Console.ReadLine();
+        string s = format(s1);
+        string polind = polindrom(s.Split(' '));
+        int ans3 = theard(s.Split(' '));
+        Console.WriteLine("ответ на первую задачу :" + s);
+        Console.WriteLine("ответ на вторую задачу :" + polind);
+        Console.WriteLine("ответ на третью задачу :" + ans3);
+    }
+}

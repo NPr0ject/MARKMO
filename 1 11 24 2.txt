@@ -1,0 +1,55 @@
+using System;
+class programm
+{
+
+    static void Main()
+    {
+        int m = Convert.ToInt32(Console.ReadLine()); // кол - во  строк массива
+        int n = Convert.ToInt32(Console.ReadLine()); // кол - во  столбцов массива
+        int[,] a = new int[m, n];
+        int max = -400000000;
+        int min = 400000000;
+        int[] maxind = new int[2];
+        int[] minind = new int[2]; ;
+        for (int i = 0; i < m; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                a[i, j] = Convert.ToInt32(Console.ReadLine()); // читаем элементы в строкe
+                if (a[i, j] > max)
+                {
+                    max = a[i, j];
+                    maxind[0] = i;
+                    maxind[1] = j;
+                }
+                if (a[i, j] < min)
+                {
+                    min = a[i, j];
+                    minind[0] = i;
+                    minind[1] = j;
+
+                }
+            }
+        }
+        for (int i = 0; i < m; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                if (i == maxind[0] && j == maxind[1])
+                {
+                    Console.Write(min + " ");
+                }
+                else if(i == minind[0] && j == minind[1])
+                {
+                    Console.Write(max + " ");
+                }
+                else
+                {
+                    Console.Write(a[i, j] + " ");
+                }
+            }
+            Console.Write('\n');
+        }
+    }
+    
+}

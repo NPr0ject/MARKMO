@@ -1,0 +1,173 @@
+Данна последовательность из n элементов (не менее 3 элементов)
+1 задача 
+найти количество локальных минимумов
+2 задача
+определить второй максимальный элемент
+3 задача
+определить кол-во элеметов оканчивающихся на 3
+4 задача
+определить все ли элементы чётные и оканчиваются на 4
+решение 1
+using System;
+class programm {
+    // задание 1
+    static void Main() {
+        int n = Convert.ToInt32(Console.ReadLine());
+    int ans = 0;
+    int a = Convert.ToInt32(Console.ReadLine());
+    int b = Convert.ToInt32(Console.ReadLine());
+    for (int i = 0; i < n - 2; i++){
+        int c = Convert.ToInt32(Console.ReadLine());
+        if ((b < a) && ( b < c)){
+            ans++;
+        }
+        a = b;
+        b = c;
+    }
+    Console.WriteLine(ans);   
+    }
+}
+
+
+решение 2
+using System;
+class programm {
+    // задание 2
+    static void Main() {
+        int n = Convert.ToInt32(Console.ReadLine());
+    int max = -2147483647;
+    int ans = 0;
+    for (int i = 0; i < n; i++){
+        int c = Convert.ToInt32(Console.ReadLine());
+        if (c >= max){
+            ans = max;
+            max = c;
+        }
+    }
+    Console.WriteLine(ans);   
+    }
+}
+решение 3 
+using System;
+class programm {
+    // задание 3
+    static void Main() {
+        int n = Convert.ToInt32(Console.ReadLine());
+    int ans = 0;
+    for (int i = 0; i < n; i++){
+        int c = Convert.ToInt32(Console.ReadLine());
+        if (c % 10 == 3){
+            ans++;
+        }
+    }
+    Console.WriteLine(ans);   
+    }
+}
+решение 4
+using System;
+class programm {
+    // задание 4
+    static void Main() {
+        int n = Convert.ToInt32(Console.ReadLine());
+        bool ans = true;
+    for (int i = 0; i < n; i++){
+        int c = Convert.ToInt32(Console.ReadLine());
+        if ((c % 2 != 0) || (c % 10 != 4)){
+            ans = false;
+        }
+    }
+    Console.WriteLine(ans);
+    }
+}
+
+
+
+Дана последовотельность из n элементов 
+1 определить макс длинну под последовотельности со стоящую из не нулевых элементов
+2 определить мин размер подпоследовательности соотоящих из одинаковых элементов
+3 определть макс сумму подпоследовательности состоящую из чётных элементов. 
+
+1 решение
+using System;
+class programm {
+    // задание 1
+    static void Main() {
+        int n = Convert.ToInt32(Console.ReadLine());
+        int ans = 0;
+        int score = 0;
+    for (int i = 0; i < n; i++){
+        int c = Convert.ToInt32(Console.ReadLine());
+        if (c != 0){
+            score++;
+        }
+        else {
+            if(ans < score){
+                ans = score;
+            }
+            score = 0;
+        }
+    }
+    if(ans == 0)
+        ans = score;
+    Console.WriteLine(ans);
+    }
+}
+
+2 решение 
+using System;
+class programm {
+    // задание 2
+    static void Main() {
+        int n = Convert.ToInt32(Console.ReadLine());
+        int ans = 2147483647;
+        int score = 1;
+        int m = Convert.ToInt32(Console.ReadLine());
+        int cm = m;
+    for (int i = 0; i < n - 1; i++){
+        int c = Convert.ToInt32(Console.ReadLine());
+        if (c == cm){
+            score++;
+        }
+        if (c != cm) {
+            if(ans > score){
+                ans = score;
+            }
+            score = 1;
+            cm = c;
+        }
+    }
+    if(ans > score)
+        ans = score;
+    Console.WriteLine(ans);
+    }
+}
+
+3 решение
+using System;
+class programm {
+    // задание 3
+    static void Main() {
+        int n = Convert.ToInt32(Console.ReadLine());
+        int ans = -2147483648;
+        int score = 0;
+    for (int i = 0; i < n; i++){
+        int c = Convert.ToInt32(Console.ReadLine());
+        if (c %2 == 0){
+            score += c;
+        }
+        else {
+            if(ans < score){
+                ans = score;
+            }
+            score = 0;
+        }
+    }
+    if(ans < score){
+                ans = score;
+            }
+    Console.WriteLine(ans);
+    }
+}
+
+
+1 лабараторная

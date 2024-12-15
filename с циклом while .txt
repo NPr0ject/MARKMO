@@ -1,0 +1,39 @@
+using System;
+class programm
+{
+    static void Main()
+    {
+        int ans = 0;
+        bool run = true;
+        int k = 1;
+        int prikol = 0;
+        while (run == true)// не работает надо заверщать через ctrl + c
+        {
+            int x = Convert.ToInt32(Console.ReadLine());
+            if (x % 2 == 0)
+            {
+                ans = ans + (x * k);
+                k = k * 10;
+            }
+            if (x <= 0)
+            {
+                run = false;
+                break;
+            }
+
+            else
+            {
+                prikol++;
+            }
+        }
+        if (ans == 0)
+        {
+            Console.WriteLine("нету последовательности");
+        }
+        else
+        {
+            Console.WriteLine(ans);
+        }
+    
+    }
+} 

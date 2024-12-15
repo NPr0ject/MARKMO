@@ -1,0 +1,24 @@
+using System;
+class programm{
+    public static void input(int n, int[] a){
+    for(int i = 0; i<n; i++){
+        a[i] = Convert.ToInt32(Console.ReadLine());
+    }
+}
+    public static void kvadrat(int n, int[] a) {
+    for(int i = 0; i<n; i++){
+        a[i] = a[i]*a[i];
+    }
+}
+    public static void output(int n, int[] a) {
+    for(int i = 0; i<n; i++){
+        Console.WriteLine(a[i]);
+    }
+}
+    static void Main(){
+        int m = Convert.ToInt32(Console.ReadLine());
+        int[] a = new int[m];
+        input(m, a);
+        output(m, a);
+    }
+}

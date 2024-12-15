@@ -1,0 +1,63 @@
+using System;
+using System.Threading;
+class HelloWorld
+{
+    static void Main()
+    {
+        string s = Console.ReadLine();
+        string arra = ""; // строка ара содержит все символы в паторне a*B;
+        int min = 100;
+        string ans = "";
+        for (int i = 1; i < s.Length - 1; i++)
+        {
+            if ((s[i - 1] == 'a' || s[i - 1] == 'A') && (s[i + 1] == 'b' || s[i + 1] == 'B'))
+            {
+                arra += s[i];
+            }
+        }
+        arra = arra.ToUpper();
+        Console.WriteLine(arra);
+        string gh = ""; // усовершенстванная новая строка где каждый символ всего один раз 
+        string ghn = "";//у каждого есть кол - во вхождений
+        for (int i = 0; i < arra.Length; i++)
+        {
+            if (arra[i] != '-')
+            {
+                int count = 1;
+                gh += arra[i];
+                for (int j = i + 1; j < arra.Length; j++)
+                {
+                    if (arra[i] == arra[j])
+                    {
+                        count++;
+                        arra = arra.Replace(arra[i], '-');
+                    }
+                }
+                ghn += count;
+                //ghn += ' '; жаль нет split((( тк это массив
+            }
+        }
+        Console.WriteLine(gh);
+        Console.WriteLine(ghn);
+
+        Console.WriteLine(gh);
+        Console.WriteLine(ghn);
+        for (int i = 0; i < ghn.Length; i++) // ищу макс элемент
+        {
+            int count =Convert.ToInt32(ghn[i]);
+            if (count < min)
+            {
+                min = count;
+            }
+        }
+        for (int i = 0; i < ghn.Length; i++) // ищу макс элемент
+        {
+            int count = Convert.ToInt32(ghn[i]);
+            if (count == min)
+            {
+                ans = ans + ' ' + gh[i]; 
+            }
+        }
+        Console.WriteLine(ans);
+    }
+}
