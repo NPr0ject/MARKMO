@@ -1,0 +1,68 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AiPArray3de
+{
+    public class ArrayD<T>
+    {
+        T[] array;
+        public int count;
+        public ArrayD(int N = 100)
+        {
+            array = new T[N];
+            count = 0;
+        }
+        public void Add(T item)
+        {
+            array[count] = item;
+            count++;
+        }
+        public void Delete()
+        {
+            if (count == 0) {
+                Console.WriteLine("Тут где то ошибка: index вышел за массив"); 
+            }
+            count--;
+            array[count] = default(T);
+        }
+        public void Write(int index)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                if (index == i)
+                {
+                    Console.WriteLine(array[i]);
+                    break;
+                }
+            }
+        }
+    }
+    public class program
+    {
+        static void Main()
+        {
+            var ara = new ArrayD<int>();
+            for (int i = 4; i < 26; i += 2)
+            {
+                ara.Add(i);
+            }
+            for (int i = 0; i <= ara.count; i++)
+            {
+                ara.Write(i);
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                ara.Delete();
+            }
+            for (int i = 0; i < ara.count; i++)
+            {
+                ara.Write(i);
+            }
+            Console.WriteLine("Задание за 10.04.25");
+            Console.ReadLine();
+        }
+    }
+}
